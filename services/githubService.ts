@@ -2,7 +2,7 @@ import type { GitHubProfile, GitHubRepo, GitHubCommit, CacheEntry, GitHubStats }
 
 export class GitHubService {
   private username = 'Kyle-Nye';
-  private cacheDuration = 5 * 60 * 1000; // 5 minutes
+  private cacheDuration = 24 * 60 * 60 * 1000; // 24 hours
 
   /**
    * Fetch user profile with caching

@@ -12,5 +12,15 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, '.'),
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      external: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
+      output: {
+        manualChunks: {
+          vendor: ['date-fns', 'react-syntax-highlighter', 'embla-carousel-react'],
+        },
+      },
+    },
+  },
 });
