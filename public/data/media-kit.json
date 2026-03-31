@@ -1,0 +1,23 @@
+{
+  "name": "Kyle Nye",
+  "avatarUrl": "https://utfs.io/f/h6Cml4XgPqDUZemy4QdaVtIXFrhy8fqGWk2RSmgUz7AoeEw3",
+  "stats": [
+    { "label": "Amazon Earnings", "value": "$10,000+", "type": "amazon", "verified": true },
+    { "label": "Items Sold", "value": "5,000+", "type": "items", "verified": true },
+    { "label": "Revenue Generated", "value": "$200,000+", "type": "revenue", "verified": true },
+    { "label": "Videos Completed", "value": "530", "type": "videos", "verified": true }
+  ],
+  "socialLinks": [
+    { "platform": "amazon", "url": "https://www.amazon.com/shop/geektak", "label": "Amazon Storefront" },
+    { "platform": "instagram", "url": "https://www.instagram.com/geektak/", "label": "Instagram" },
+    { "platform": "youtube", "url": "https://www.youtube.com/@geektakafk", "label": "YouTube" },
+    { "platform": "pinterest", "url": "https://www.pinterest.com/geektak/", "label": "Pinterest" }
+  ],
+  "specializations": ["Unboxing", "Amazon Shoppable Video", "Product Review"],
+  "videoTypes": ["Unboxing", "Amazon Shoppable Video", "Product Review"],
+  "rateCard": [
+    { "service": "Video Review", "price": "$70.00" }
+  ],
+  "activeSince": "Oct 22 2023",
+  "lastUpdated": "2026-03-31T00:00:00.000Z"
+}

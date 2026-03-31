@@ -281,33 +281,8 @@ export const AV_SYSTEM: AVSystemArchitecture = {
   ]
 };
 
-// Code Snippets - Updated to show "AI Native" skills
+// Code Snippets - Real project code
 export const CODE_SNIPPETS: CodeSnippet[] = [
-  {
-    id: 'system-prompt',
-    projectName: 'Portfolio Architect Prompt',
-    description: 'The meta-prompt used to generate this entire website.',
-    language: 'json',
-    fileName: 'architect_prompt.json',
-    githubUrl: 'https://github.com/Kyle-Nye/kyle-nye',
-    code: `{
-  "role": "Senior Frontend Architect",
-  "goal": "Build a 'Bento-Grid' portfolio for an AI Engineer.",
-  "constraints": {
-    "visuals": "Industrial minimal, Dark mode (Zinc-950), Amber-500 accents.",
-    "tech_stack": "Next.js 14, Tailwind, Framer Motion",
-    "ux": "Prioritize density and information hierarchy over flashy animations."
-  },
-  "content_strategy": {
-    "narrative": "Pivot from AV Systems (Tesla/Zoox) to AI Agents.",
-    "differentiators": [
-      "Show live telemetry (latency)",
-      "Visualize automation (n8n logs)",
-      "Prove coding ability via interactive terminal"
-    ]
-  }
-}`
-  },
   {
     id: 'sysadmin-automation',
     projectName: 'SysAdmin Automation Suite',

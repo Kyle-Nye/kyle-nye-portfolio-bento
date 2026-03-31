@@ -14,6 +14,7 @@ import CommandPalette from './components/CommandPalette';
 import SkillsEvolution from './components/SkillsEvolution';
 import AutomationEngine from './components/AutomationEngine';
 import GitHubActivityCard from './components/GitHubActivityCard';
+import MediaKitCard from './components/MediaKitCard';
 import TechnicalSystemsDiagram from './components/TechnicalSystemsDiagram';
 import ProjectCodeViewer from './components/ProjectCodeViewer';
 import { CAREER_PHASES, WORKFLOW_STEPS, CODE_SNIPPETS, AV_SYSTEM } from './constants';
@@ -98,11 +99,11 @@ const PortfolioContent: React.FC = () => {
         </header>
 
         {/* BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[minmax(280px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
           {/* TILE 1: SKILLS EVOLUTION (2x2) */}
           <DebugWrapper
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[500px] lg:min-h-auto"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[420px] md:min-h-[500px] lg:min-h-0"
             data={{
               id: "career_evolution",
               phases: CAREER_PHASES.length,
@@ -114,9 +115,9 @@ const PortfolioContent: React.FC = () => {
             </BentoCard>
           </DebugWrapper>
 
-          {/* TILE 3: GITHUB LIVE ACTIVITY (1x1) */}
+          {/* TILE: GITHUB LIVE ACTIVITY (1x1) */}
           <DebugWrapper
-            className="md:col-span-1 lg:col-span-1"
+            className="md:col-span-1 lg:col-span-1 min-h-[240px]"
             data={{
               service: "github_api",
               username: "Kyle-Nye",
@@ -128,31 +129,47 @@ const PortfolioContent: React.FC = () => {
             </BentoCard>
           </DebugWrapper>
 
-          {/* TILE 4: QUICK CONNECT (1x1) */}
+          {/* TILE: MEDIA KIT (1x1) */}
           <DebugWrapper
-            className="md:col-span-1 lg:col-span-1"
+            className="md:col-span-1 lg:col-span-1 min-h-[240px]"
+            data={{
+              service: "kit.media/geektak",
+              scrape_target: "kit.media",
+              cache_ttl: "24h"
+            }}
+          >
+            <BentoCard className="flex flex-col h-full" delay={0.25}>
+              <MediaKitCard />
+            </BentoCard>
+          </DebugWrapper>
+
+          {/* TILE: QUICK CONNECT */}
+          <DebugWrapper
+            className="md:col-span-2 lg:col-span-2"
             data={{
                 links: ["github.com/Kyle-Nye", "linkedin.com/in/kylejnye"]
             }}
           >
             <BentoCard className="flex flex-col justify-center gap-3 h-full" delay={0.3}>
                <div className="uppercase tracking-widest text-xs font-bold font-mono text-zinc-600 mb-1">Connect</div>
-               <a href="https://github.com/Kyle-Nye" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-white hover:bg-zinc-800/50 p-2 -mx-2 rounded transition-all group/social z-20 relative">
-                  <Github size={20} className="group-hover/social:text-amber-500 transition-colors" />
-                  <span className="font-mono text-sm">GitHub</span>
-                  <ArrowUpRight size={14} className="ml-auto opacity-0 group-hover/social:opacity-100 transition-opacity" />
-               </a>
-               <a href="https://linkedin.com/in/kylejnye" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-white hover:bg-zinc-800/50 p-2 -mx-2 rounded transition-all group/social z-20 relative">
-                  <Linkedin size={20} className="group-hover/social:text-blue-500 transition-colors" />
-                  <span className="font-mono text-sm">LinkedIn</span>
-                  <ArrowUpRight size={14} className="ml-auto opacity-0 group-hover/social:opacity-100 transition-opacity" />
-               </a>
+               <div className="flex flex-col md:flex-row md:gap-4 gap-3">
+                 <a href="https://github.com/Kyle-Nye" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-white hover:bg-zinc-800/50 p-2 -mx-2 rounded transition-all group/social z-20 relative flex-1">
+                    <Github size={20} className="group-hover/social:text-amber-500 transition-colors" />
+                    <span className="font-mono text-sm">GitHub</span>
+                    <ArrowUpRight size={14} className="ml-auto opacity-0 group-hover/social:opacity-100 transition-opacity" />
+                 </a>
+                 <a href="https://linkedin.com/in/kylejnye" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-zinc-400 hover:text-white hover:bg-zinc-800/50 p-2 -mx-2 rounded transition-all group/social z-20 relative flex-1">
+                    <Linkedin size={20} className="group-hover/social:text-blue-500 transition-colors" />
+                    <span className="font-mono text-sm">LinkedIn</span>
+                    <ArrowUpRight size={14} className="ml-auto opacity-0 group-hover/social:opacity-100 transition-opacity" />
+                 </a>
+               </div>
             </BentoCard>
           </DebugWrapper>
 
-          {/* TILE 5: TECHNICAL SYSTEMS DIAGRAM (2x1) */}
+          {/* TILE: TECHNICAL SYSTEMS DIAGRAM (2x1) */}
           <DebugWrapper
-            className="md:col-span-2 lg:col-span-2"
+            className="md:col-span-2 lg:col-span-2 min-h-[280px]"
             data={{
               system: "av_architecture",
               layers: AV_SYSTEM.layers.length,
@@ -164,9 +181,9 @@ const PortfolioContent: React.FC = () => {
             </BentoCard>
           </DebugWrapper>
 
-          {/* TILE 2: AUTOMATION ENGINE (2x1) */}
+          {/* TILE: AUTOMATION ENGINE (2x1) */}
           <DebugWrapper
-            className="md:col-span-2 lg:col-span-2"
+            className="md:col-span-2 lg:col-span-2 min-h-[280px]"
             data={{
               system: "n8n_autoblog",
               agents: ["Researcher", "Writer", "Editor"],
@@ -178,9 +195,9 @@ const PortfolioContent: React.FC = () => {
             </BentoCard>
           </DebugWrapper>
 
-          {/* TILE 6: PROJECT CODE VIEWER (2x1) */}
+          {/* TILE: PROJECT CODE VIEWER (2x1) */}
           <DebugWrapper
-            className="md:col-span-2 lg:col-span-2"
+            className="md:col-span-2 lg:col-span-2 min-h-[280px]"
             data={{
               snippets: CODE_SNIPPETS.length,
               languages: ["Python", "TypeScript", "JSON"]
