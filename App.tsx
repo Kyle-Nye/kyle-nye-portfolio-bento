@@ -102,6 +102,7 @@ const PortfolioContent: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
           {/* TILE 1: SKILLS EVOLUTION (2x2) */}
+          <h2 className="sr-only">Career & Skills</h2>
           <DebugWrapper
             className="md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[420px] md:min-h-[500px] lg:min-h-0"
             data={{
@@ -144,6 +145,7 @@ const PortfolioContent: React.FC = () => {
           </DebugWrapper>
 
           {/* TILE: QUICK CONNECT */}
+          <h2 className="sr-only">Connect</h2>
           <DebugWrapper
             className="md:col-span-2 lg:col-span-2"
             data={{
@@ -168,6 +170,7 @@ const PortfolioContent: React.FC = () => {
           </DebugWrapper>
 
           {/* TILE: TECHNICAL SYSTEMS DIAGRAM (2x1) */}
+          <h2 className="sr-only">Technical Projects & Systems</h2>
           <DebugWrapper
             className="md:col-span-2 lg:col-span-2 min-h-[280px]"
             data={{

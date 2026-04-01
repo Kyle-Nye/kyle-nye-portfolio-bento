@@ -9,7 +9,49 @@
     <meta name="description" content="Kyle Nye is an AI Solutions Architect based in Houston, TX. Specializing in Autonomous Agents, n8n Automation, and Systems Reliability (Tesla, Zoox)." />
     <meta name="keywords" content="Kyle Nye, AI Engineer, n8n, Houston, Systems Engineer, Autonomous Agents, Prompt Engineering" />
     <meta name="author" content="Kyle Nye" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="US-TX" />
+    <meta name="geo.placename" content="Houston" />
+    <meta name="fragment" content="!" />
     <link rel="canonical" href="https://kylenye.xyz/" />
+
+    <!-- Structured Data: Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kyle Nye",
+      "url": "https://kylenye.xyz",
+      "jobTitle": "AI Solutions Architect & Systems Engineer",
+      "description": "AI-Native Engineer and Systems Specialist with 5+ years ensuring reliability for autonomous vehicle fleets. Now architecting automation pipelines and agentic AI applications.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://github.com/Kyle-Nye",
+        "https://linkedin.com/in/kylejnye",
+        "https://geektak.com"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Autonomous Vehicles",
+        "n8n Workflow Automation",
+        "Systems Engineering",
+        "Prompt Engineering",
+        "RAG Pipelines",
+        "Linux Systems Administration",
+        "Full-Stack Development"
+      ],
+      "alumniOf": [
+        { "@type": "Organization", "name": "Tesla" },
+        { "@type": "Organization", "name": "Zoox" },
+        { "@type": "Organization", "name": "Nuro" }
+      ]
+    }
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kylenye.xyz/" />
@@ -80,7 +122,19 @@
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #f59e0b; 
+        background: #f59e0b;
+      }
+      /* Screen-reader only utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
       }
     </style>
   <script type="importmap">
@@ -99,6 +153,21 @@
 </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="max-width:700px;margin:80px auto;padding:0 24px;font-family:Inter,sans-serif;color:#f4f4f5;background:#09090b;">
+        <h1 style="font-size:2.5rem;font-weight:700;">Kyle Nye</h1>
+        <p style="color:#a1a1aa;font-size:1.1rem;margin-top:8px;">AI Solutions Architect & Systems Engineer | Houston, TX</p>
+        <p style="color:#71717a;margin-top:16px;line-height:1.6;">
+          AI-Native Engineer with 5+ years ensuring reliability for autonomous vehicle fleets at Tesla, Zoox, and Nuro.
+          Now architecting automation pipelines and agentic AI applications using n8n, LLMs, and full-stack development.
+        </p>
+        <p style="margin-top:24px;">
+          <a href="https://github.com/Kyle-Nye" style="color:#fbbf24;margin-right:16px;">GitHub</a>
+          <a href="https://linkedin.com/in/kylejnye" style="color:#fbbf24;margin-right:16px;">LinkedIn</a>
+          <a href="https://geektak.com" style="color:#fbbf24;">GeekTak.com</a>
+        </p>
+      </div>
+    </noscript>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
