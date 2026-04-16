@@ -34,27 +34,15 @@ function parseStats(html: string): MediaKitStat[] {
   return stats;
 }
 
-function parseSocialLinks(html: string): MediaKitSocialLink[] {
-  const links: MediaKitSocialLink[] = [];
-  const linkRegex = /mk-user-card__link-btn[^"]*"[\s\S]*?href="([^"]+)"[\s\S]*?aria-label="([^"]+)"/g;
-  let match;
-
-  const platformMap: Record<string, MediaKitSocialLink['platform']> = {
-    'Amazon Storefront': 'amazon',
-    'Instagram': 'instagram',
-    'YouTube': 'youtube',
-    'Pinterest': 'pinterest',
-  };
-
-  while ((match = linkRegex.exec(html)) !== null) {
-    const label = match[2];
-    const platform = platformMap[label];
-    if (platform) {
-      links.push({ platform, url: match[1], label });
-    }
-  }
-
-  return links;
+function parseSocialLinks(_html: string): MediaKitSocialLink[] {
+  // Hardcoded — kit.media restructured their HTML and the scraper was
+  // picking up SVG icon paths instead of real URLs. These rarely change.
+  return [
+    { platform: 'amazon', url: 'https://www.amazon.com/shop/geektak', label: 'Amazon Storefront' },
+    { platform: 'instagram', url: 'https://www.instagram.com/geektak/', label: 'Instagram' },
+    { platform: 'youtube', url: 'https://www.youtube.com/@geektakreviews', label: 'YouTube' },
+    { platform: 'pinterest', url: 'https://www.pinterest.com/geektak/', label: 'Pinterest' },
+  ];
 }
 
 function parseSpecializations(html: string): string[] {
@@ -164,7 +152,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       socialLinks: [
         { platform: 'amazon', url: 'https://www.amazon.com/shop/geektak', label: 'Amazon Storefront' },
         { platform: 'instagram', url: 'https://www.instagram.com/geektak/', label: 'Instagram' },
-        { platform: 'youtube', url: 'https://www.youtube.com/@geektakafk', label: 'YouTube' },
+        { platform: 'youtube', url: 'https://www.youtube.com/@geektakreviews', label: 'YouTube' },
         { platform: 'pinterest', url: 'https://www.pinterest.com/geektak/', label: 'Pinterest' },
       ],
       specializations: ['Unboxing', 'Amazon Shoppable Video', 'Product Review'],

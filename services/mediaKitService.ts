@@ -13,7 +13,7 @@ const FALLBACK_DATA: MediaKitData = {
   socialLinks: [
     { platform: 'amazon', url: 'https://www.amazon.com/shop/geektak', label: 'Amazon Storefront' },
     { platform: 'instagram', url: 'https://www.instagram.com/geektak/', label: 'Instagram' },
-    { platform: 'youtube', url: 'https://www.youtube.com/@geektakafk', label: 'YouTube' },
+    { platform: 'youtube', url: 'https://www.youtube.com/@geektakreviews', label: 'YouTube' },
     { platform: 'pinterest', url: 'https://www.pinterest.com/geektak/', label: 'Pinterest' },
   ],
   specializations: ['Unboxing', 'Amazon Shoppable Video', 'Product Review'],
