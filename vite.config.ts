@@ -15,7 +15,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
+      external: ['react', 'react-dom', 'framer-motion', 'lucide-react', 'react-router-dom'],
       output: {
         manualChunks: {
           vendor: ['date-fns', 'react-syntax-highlighter', 'embla-carousel-react'],

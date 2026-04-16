@@ -8,19 +8,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    // Warm the cache by hitting the main endpoint
     const baseUrl = `https://${req.headers.host}`;
-    const response = await fetch(`${baseUrl}/api/media-kit`);
 
-    if (!response.ok) {
-      throw new Error(`Refresh failed: ${response.status}`);
+    // Warm both caches in parallel
+    const [mediaKitRes, youtubeRes] = await Promise.all([
+      fetch(`${baseUrl}/api/media-kit`),
+      fetch(`${baseUrl}/api/youtube-stats`),
+    ]);
+
+    if (!mediaKitRes.ok) {
+      throw new Error(`Media kit refresh failed: ${mediaKitRes.status}`);
     }
 
-    const data = await response.json();
+    const mediaKitData = await mediaKitRes.json();
+    const youtubeData = youtubeRes.ok ? await youtubeRes.json() : null;
+
     return res.status(200).json({
       ok: true,
-      lastUpdated: data.lastUpdated,
-      statsCount: data.stats?.length ?? 0,
+      mediaKit: {
+        lastUpdated: mediaKitData.lastUpdated,
+        statsCount: mediaKitData.stats?.length ?? 0,
+      },
+      youtube: youtubeData
+        ? { totalViews: youtubeData.totalViews, videoCount: youtubeData.videoCount }
+        : { error: 'Failed to refresh' },
     });
   } catch (error) {
     console.error('Cron refresh failed:', error);

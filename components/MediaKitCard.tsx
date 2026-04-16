@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ShoppingBag,
@@ -7,8 +8,11 @@ import {
   Video,
   BadgeCheck,
   ExternalLink,
+  Eye,
+  ArrowRight,
 } from 'lucide-react';
 import { useMediaKit } from '../hooks/useMediaKit';
+import { useYouTube } from '../hooks/useYouTube';
 import { formatDistanceToNow } from 'date-fns';
 import type { MediaKitStat } from '../types/mediaKit';
 
@@ -59,7 +63,9 @@ const PlatformIcon: React.FC<{ platform: string; className?: string }> = ({ plat
 };
 
 const MediaKitCard: React.FC = () => {
+  const navigate = useNavigate();
   const { data, isLoading } = useMediaKit();
+  const { data: ytData } = useYouTube();
 
   if (isLoading || !data) {
     return (
@@ -131,8 +137,22 @@ const MediaKitCard: React.FC = () => {
         ))}
       </div>
 
+      {/* YouTube Stats */}
+      {ytData && (
+        <div className="flex items-center gap-3 mt-3 pt-2.5 border-t border-zinc-900">
+          <Eye size={12} className="text-zinc-600" />
+          <span className="text-[10px] text-zinc-400 font-mono">
+            {ytData.totalViews} views
+          </span>
+          <Video size={12} className="text-zinc-600" />
+          <span className="text-[10px] text-zinc-400 font-mono">
+            {ytData.videoCount} videos
+          </span>
+        </div>
+      )}
+
       {/* Social Links */}
-      <div className="flex items-center gap-2.5 mt-3 pt-2.5 border-t border-zinc-900">
+      <div className="flex items-center gap-2.5 mt-2 pt-2.5 border-t border-zinc-900">
         {data.socialLinks.map((link) => (
           <a
             key={link.platform}
@@ -151,6 +171,15 @@ const MediaKitCard: React.FC = () => {
           Updated {lastUpdated}
         </span>
       </div>
+
+      {/* UGC Pricing Button */}
+      <button
+        onClick={() => navigate('/ugc')}
+        className="mt-2.5 w-full flex items-center justify-center gap-2 px-3 py-2 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/30 rounded-lg text-amber-500 text-xs font-mono font-medium transition-all z-20 relative"
+      >
+        View UGC Pricing
+        <ArrowRight size={12} />
+      </button>
     </div>
   );
 };

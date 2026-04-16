@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {
   Github,
   Linkedin,
@@ -17,6 +18,7 @@ import GitHubActivityCard from './components/GitHubActivityCard';
 import MediaKitCard from './components/MediaKitCard';
 import TechnicalSystemsDiagram from './components/TechnicalSystemsDiagram';
 import ProjectCodeViewer from './components/ProjectCodeViewer';
+import UGCPricingPage from './components/ugc/UGCPricingPage';
 import { CAREER_PHASES, WORKFLOW_STEPS, CODE_SNIPPETS, AV_SYSTEM } from './constants';
 
 // Toggle Switch Component
@@ -240,7 +242,11 @@ const PortfolioContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <DebugProvider>
-      <PortfolioContent />
+      <Routes>
+        <Route path="/" element={<PortfolioContent />} />
+        <Route path="/ugc" element={<UGCPricingPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </DebugProvider>
   );
 }
